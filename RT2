@@ -1,53 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgentAccess - Mockup</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AgentAccess - Self-Tour Request</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }
-    header { background-color: #1f2937; color: white; padding: 1rem 2rem; text-align: center; }
-    .container { padding: 2rem; max-width: 800px; margin: auto; background: white; margin-top: 2rem; border-radius: 10px; }
-    h2 { color: #111827; }
-    input, select, textarea, button {
-      width: 100%; padding: 10px; margin-top: 0.5rem; margin-bottom: 1rem; border-radius: 5px; border: 1px solid #ccc;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #1f2937;
     }
-    button { background-color: #2563eb; color: white; border: none; cursor: pointer; }
-    button:hover { background-color: #1e40af; }
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.95);
+      max-width: 700px;
+      margin: 3rem auto;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #111827;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 0.4rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      margin-top: 1.5rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1e40af;
+    }
+    .confirmation {
+      background-color: #e0f7e9;
+      border: 1px solid #38a169;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-radius: 6px;
+      display: none;
+    }
+    small {
+      font-size: 0.9rem;
+      color: #555;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>AgentAccess - Self-Tour Request</h1>
-  </header>
-  <div class="container">
-    <h2>Buyer Self-Tour Request</h2>
+  <div class="overlay">
+    <h1>AgentAccess</h1>
+    <h2>Self-Tour Request Form</h2>
+
     <label for="property">Property Address</label>
-    <input type="text" id="property" placeholder="123 SE Blvd, Portland, OR">
+    <input type="text" id="property" placeholder="123 SE Blvd, Portland, OR" />
 
     <label for="date">Requested Date</label>
-    <input type="date" id="date">
+    <input type="date" id="date" />
 
     <label for="time">Requested Time</label>
-    <input type="time" id="time">
+    <select id="time">
+      <option value="">Select a time</option>
+      <!-- 6:00 AM to 9:00 PM in 30-minute increments -->
+      <script>
+        let times = '';
+        for (let h = 6; h <= 20; h++) {
+          times += `<option>${(h > 12 ? h - 12 : h)}:00 ${h < 12 ? 'AM' : 'PM'}</option>`;
+          times += `<option>${(h > 12 ? h - 12 : h)}:30 ${h < 12 ? 'AM' : 'PM'}</option>`;
+        }
+        document.write(times);
+      </script>
+    </select>
 
-    <label for="attendees">Full Names of All Attendees (18+)</label>
-    <textarea id="attendees" placeholder="Name 1, Name 2..."></textarea>
+    <label for="attendees">Names of All Attendees (18+)</label>
+    <textarea id="attendees" placeholder="John Doe, Jane Doe"></textarea>
 
-    <label for="idUpload">Upload Photo ID (for verification)</label>
-    <input type="file" id="idUpload">
+    <label for="idUpload">Upload Photo ID</label>
+    <input type="file" id="idUpload" />
+
+    <label><strong>Waiver & Self-Tour Agreement</strong></label>
+    <small>
+      I, the buyer named below, hereby accept full responsibility for myself and all guests over the age of 18 who will enter the property listed above.
+      I understand this is a private residence and agree to:
+      <ul>
+        <li>Not damage, steal, or disturb any personal property.</li>
+        <li>Only use this tour for real estate evaluation.</li>
+        <li>Not open off-limit areas or closed rooms.</li>
+        <li>Be responsible for any incidents during the tour.</li>
+        <li>Vacate the home at the agreed time.</li>
+      </ul>
+      I understand my digital signature below is legally binding and may be shared with the listing agent.
+    </small>
 
     <label for="buyerSignature">Buyer Signature (type full name)</label>
-    <input type="text" id="buyerSignature">
+    <input type="text" id="buyerSignature" placeholder="John Buyer" />
 
     <label for="agentSignature">Buyer Agent Signature (type full name)</label>
-    <input type="text" id="agentSignature">
+    <input type="text" id="agentSignature" placeholder="Tommy Abboud" />
 
     <button onclick="submitForm()">Submit Tour Request</button>
 
-    <div id="confirmation" style="display:none; padding-top: 1rem;">
-      <strong>Tour request submitted!</strong><br>
-      It has been sent to the listing agent for review and approval.
+    <div class="confirmation" id="confirmation">
+      ✅ Tour request submitted!  
+      It has been sent to the listing agent for review and confirmation.
     </div>
   </div>
 
