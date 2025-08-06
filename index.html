@@ -55,9 +55,14 @@
       border-radius: 6px;
       display: none;
     }
-    small {
-      font-size: 0.9rem;
-      color: #555;
+    small, ul {
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.4;
+    }
+    ul {
+      margin-top: 0.5rem;
+      padding-left: 1.2rem;
     }
   </style>
 </head>
@@ -75,7 +80,6 @@
     <label for="time">Requested Time</label>
     <select id="time">
       <option value="">Select a time</option>
-      <!-- 6:00 AM to 9:00 PM in 30-minute increments -->
       <script>
         let times = '';
         for (let h = 6; h <= 20; h++) {
@@ -86,24 +90,28 @@
       </script>
     </select>
 
-    <label for="attendees">Names of All Attendees (18+)</label>
-    <textarea id="attendees" placeholder="John Doe, Jane Doe"></textarea>
+    <label for="attendees">Names of All Attendees</label>
+    <textarea id="attendees" placeholder="John Doe, Jane Doe, etc."></textarea>
 
     <label for="idUpload">Upload Photo ID</label>
     <input type="file" id="idUpload" />
 
     <label><strong>Waiver & Self-Tour Agreement</strong></label>
     <small>
-      I, the buyer named below, hereby accept full responsibility for myself and all guests over the age of 18 who will enter the property listed above.
-      I understand this is a private residence and agree to:
-      <ul>
-        <li>Not damage, steal, or disturb any personal property.</li>
-        <li>Only use this tour for real estate evaluation.</li>
-        <li>Not open off-limit areas or closed rooms.</li>
-        <li>Be responsible for any incidents during the tour.</li>
-        <li>Vacate the home at the agreed time.</li>
-      </ul>
-      I understand my digital signature below is legally binding and may be shared with the listing agent.
+      I, the buyer listed below, accept full responsibility for myself and <strong>all individuals attending the tour</strong>, including any minors under my supervision.  
+      I understand this is a private residence and agree to the following:
+    </small>
+    <ul>
+      <li>I will not damage, steal, or disturb any part of the property.</li>
+      <li>I am solely touring the home for real estate evaluation purposes.</li>
+      <li>I will not open any closed doors, cabinets, or access off-limit areas.</li>
+      <li>I am responsible for <strong>any accidents, damages, or injuries</strong> caused by myself or anyone I bring.</li>
+      <li>I will ensure children are <strong>supervised at all times</strong> during the showing.</li>
+      <li>I will vacate the property at the scheduled end time.</li>
+      <li><strong>I agree to follow all entry and exit instructions</strong> provided by the listing agent, including use of keys, codes, or lockboxes.</li>
+    </ul>
+    <small>
+      I agree that my digital signature below represents a <strong>legally binding agreement</strong>, which may be stored by the listing agent.
     </small>
 
     <label for="buyerSignature">Buyer Signature (type full name)</label>
@@ -128,4 +136,3 @@
   </script>
 </body>
 </html>
-
