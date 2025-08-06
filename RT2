@@ -1,11 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgentAccess - Mockup</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }
+    header { background-color: #1f2937; color: white; padding: 1rem 2rem; text-align: center; }
+    .container { padding: 2rem; max-width: 800px; margin: auto; background: white; margin-top: 2rem; border-radius: 10px; }
+    h2 { color: #111827; }
+    input, select, textarea, button {
+      width: 100%; padding: 10px; margin-top: 0.5rem; margin-bottom: 1rem; border-radius: 5px; border: 1px solid #ccc;
+    }
+    button { background-color: #2563eb; color: white; border: none; cursor: pointer; }
+    button:hover { background-color: #1e40af; }
+  </style>
 </head>
 <body>
-    <h1>This is a test page.</h1>
+  <header>
+    <h1>AgentAccess - Self-Tour Request</h1>
+  </header>
+  <div class="container">
+    <h2>Buyer Self-Tour Request</h2>
+    <label for="property">Property Address</label>
+    <input type="text" id="property" placeholder="123 SE Blvd, Portland, OR">
+
+    <label for="date">Requested Date</label>
+    <input type="date" id="date">
+
+    <label for="time">Requested Time</label>
+    <input type="time" id="time">
+
+    <label for="attendees">Full Names of All Attendees (18+)</label>
+    <textarea id="attendees" placeholder="Name 1, Name 2..."></textarea>
+
+    <label for="idUpload">Upload Photo ID (for verification)</label>
+    <input type="file" id="idUpload">
+
+    <label for="buyerSignature">Buyer Signature (type full name)</label>
+    <input type="text" id="buyerSignature">
+
+    <label for="agentSignature">Buyer Agent Signature (type full name)</label>
+    <input type="text" id="agentSignature">
+
+    <button onclick="submitForm()">Submit Tour Request</button>
+
+    <div id="confirmation" style="display:none; padding-top: 1rem;">
+      <strong>Tour request submitted!</strong><br>
+      It has been sent to the listing agent for review and approval.
+    </div>
+  </div>
+
+  <script>
+    function submitForm() {
+      document.getElementById('confirmation').style.display = 'block';
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+  </script>
 </body>
 </html>
