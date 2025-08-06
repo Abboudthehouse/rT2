@@ -11,22 +11,24 @@
     }
     body, html {
       margin: 0; padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       scroll-behavior: smooth;
-      background: #f9fafb;
-      color: #1f2937;
+      background: #f7fafc;
+      color: #1e293b;
+      line-height: 1.6;
     }
     a {
       text-decoration: none;
       color: #2563eb;
       cursor: pointer;
+      transition: color 0.2s ease-in-out;
     }
     a:hover {
-      color: #1e40af;
+      color: #1d4ed8;
     }
     /* Navbar */
     header {
-      background: rgba(31, 41, 55, 0.95);
+      background: rgba(30, 41, 59, 0.95);
       color: white;
       padding: 1rem 2rem;
       display: flex;
@@ -35,54 +37,76 @@
       position: sticky;
       top: 0;
       z-index: 999;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
     header h1 {
       font-weight: 700;
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       user-select: none;
+      letter-spacing: 1.5px;
     }
     nav {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1.75rem;
+      position: relative;
+      font-weight: 600;
+      font-size: 1rem;
+      user-select: none;
+    }
+    nav a, nav button {
+      color: white;
+      padding: 0.3rem 0.5rem;
+      background: none;
+      border: none;
+      font: inherit;
+      cursor: pointer;
       position: relative;
     }
-    nav a {
-      color: white;
-      font-weight: 600;
-      padding: 0.3rem 0.5rem;
-      position: relative;
+    nav a:focus, nav button:focus,
+    nav a:hover, nav button:hover {
+      color: #93c5fd;
+      outline: none;
     }
     /* Dropdown */
     .dropdown {
       position: relative;
     }
+    .dropdown-button {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
     .dropdown-content {
       display: none;
       position: absolute;
-      top: 2.2rem;
+      top: 2.6rem;
       left: 0;
       background: white;
-      color: #1f2937;
-      min-width: 200px;
-      border-radius: 6px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
-      padding: 0.5rem 0;
+      color: #1e293b;
+      min-width: 220px;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      padding: 0.4rem 0;
       z-index: 1000;
     }
     .dropdown-content a {
       display: block;
-      padding: 0.6rem 1.2rem;
-      color: #1f2937;
+      padding: 0.75rem 1.5rem;
+      color: #1e293b;
       font-weight: 500;
+      white-space: nowrap;
     }
-    .dropdown-content a:hover {
+    .dropdown-content a:hover,
+    .dropdown-content a:focus {
       background: #e0e7ff;
       color: #3730a3;
+      outline: none;
     }
-    .dropdown:hover .dropdown-content {
+    /* Show dropdown on hover and focus */
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content {
       display: block;
     }
 
@@ -95,53 +119,63 @@
       justify-content: center;
       align-items: center;
       color: white;
-      text-shadow: 0 3px 8px rgba(0,0,0,0.8);
+      text-shadow: 0 4px 12px rgba(0,0,0,0.85);
       padding: 0 1rem;
       text-align: center;
+      user-select: none;
     }
     .hero h2 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+      font-size: 3.5rem;
+      margin-bottom: 0.6rem;
       max-width: 700px;
-      font-weight: 700;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: 1.3px;
     }
     .hero p {
-      font-size: 1.25rem;
-      max-width: 600px;
-      margin-bottom: 2rem;
-      font-weight: 500;
+      font-size: 1.35rem;
+      max-width: 620px;
+      margin-bottom: 2.5rem;
+      font-weight: 600;
+      color: #d1d5dbcc;
     }
     .hero a.button {
       background-color: #2563eb;
       color: white;
-      padding: 1rem 2rem;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 1.1rem;
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.2rem;
       transition: background-color 0.3s ease;
+      box-shadow: 0 6px 14px rgba(37, 99, 235, 0.65);
+      user-select: none;
     }
-    .hero a.button:hover {
-      background-color: #1e40af;
+    .hero a.button:hover,
+    .hero a.button:focus {
+      background-color: #1d4ed8;
+      box-shadow: 0 8px 22px rgba(29, 78, 216, 0.8);
+      outline: none;
     }
 
     /* Sections */
     section {
       max-width: 900px;
-      margin: 3rem auto;
-      padding: 0 1rem;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
     }
     h3 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #111827;
+      font-size: 2.4rem;
+      margin-bottom: 1.2rem;
+      color: #0f172a;
       text-align: center;
+      font-weight: 700;
     }
     p {
       max-width: 720px;
-      margin: 0 auto 1.6rem auto;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #374151;
+      margin: 0 auto 1.8rem auto;
+      font-size: 1.18rem;
+      line-height: 1.65;
+      color: #334155;
       text-align: center;
     }
     .section-button {
@@ -149,40 +183,62 @@
       margin: 0 auto;
       background-color: #2563eb;
       color: white;
-      padding: 0.75rem 1.8rem;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      max-width: 250px;
+      padding: 0.85rem 2.25rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      max-width: 260px;
       text-align: center;
       transition: background-color 0.3s ease;
       cursor: pointer;
+      user-select: none;
+      border: none;
     }
-    .section-button:hover {
-      background-color: #1e40af;
+    .section-button:hover,
+    .section-button:focus {
+      background-color: #1d4ed8;
+      outline: none;
+      box-shadow: 0 0 8px #1d4ed8;
+    }
+    .section-button:disabled {
+      background-color: #94a3b8;
+      cursor: not-allowed;
+      box-shadow: none;
     }
 
     /* Footer */
     footer {
-      background-color: #1f2937;
+      background-color: #1e293b;
       color: white;
       text-align: center;
-      padding: 1rem;
-      margin-top: 4rem;
-      font-size: 0.9rem;
+      padding: 1.2rem;
+      margin-top: 5rem;
+      font-size: 0.95rem;
       user-select: none;
     }
 
     /* Responsive */
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       .hero h2 {
-        font-size: 2rem;
+        font-size: 2.4rem;
       }
       .hero p {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
       nav {
-        gap: 1rem;
+        gap: 1.1rem;
+        font-size: 0.95rem;
+      }
+      h3 {
+        font-size: 1.9rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      .section-button {
+        font-size: 1rem;
+        padding: 0.75rem 1.8rem;
+        max-width: 100%;
       }
     }
   </style>
@@ -194,58 +250,56 @@
   <nav>
     <a href="agent-login.html">Agent Login</a>
     <a href="client-login.html">Client Login</a>
-    <div class="dropdown">
-      <a href="javascript:void(0)">Self Tour ▼</a>
-      <div class="dropdown-content">
-        <a href="#what-is-self-tour">What is Self Tour?</a>
-        <a href="self-tour.html">Self Tour Request</a>
+    <div class="dropdown" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-label="Self Tour menu">
+      <button class="dropdown-button" aria-haspopup="true" aria-expanded="false">
+        Self Tour ▼
+      </button>
+      <div class="dropdown-content" role="menu" aria-label="Self Tour options">
+        <a href="#self-tour-info" role="menuitem" tabindex="0">What is Self Tour?</a>
+        <a href="self-tour.html" role="menuitem" tabindex="0">Self Tour Request</a>
       </div>
     </div>
   </nav>
 </header>
 
-<section class="hero">
-  <h2>Empowering Agents & Clients with Modern Real Estate Tools</h2>
-  <p>AgentAccess gives agents and clients powerful resources to streamline showings, stay safe, and make confident decisions.</p>
-  <a href="self-tour.html" class="button">Request a Self-Tour</a>
+<section class="hero" role="banner">
+  <h2>Empowering Agents &amp; Clients with Modern Real Estate Tools</h2>
+  <p>AgentAccess provides agents and clients powerful resources to streamline showings, ensure safety, and enable confident decisions.</p>
+  <a href="self-tour.html" class="button" role="button">Request a Self-Tour</a>
 </section>
 
-<section id="bio">
-  <h3>About AgentAccess</h3>
+<section id="intro">
+  <h3>Welcome to AgentAccess</h3>
   <p>
-    AgentAccess is designed to provide agents with valuable information and tools to better support their clients — <strong>YOU</strong>. It’s built to keep clients safe, informed, and empowered by giving more options and transparent resources for the home buying and selling journey.
+    AgentAccess equips real estate agents with the tools and information they need to better support their clients — <strong>YOU</strong>. Our mission is to keep clients safe, informed, and empowered by offering more options and transparent resources throughout the home buying and selling process.
   </p>
-</section>
-
-<section id="what-is-self-tour">
-  <h3>What is Self Tour?</h3>
   <p>
-    A self tour lets a buyer visit a home on their own schedule — without their agent physically present — but still under agent supervision and approval. This gives clients freedom to explore homes at their convenience, while agents keep control of access, approvals, and safety protocols.
+    Whether you're buying, selling, or investing, AgentAccess is your trusted partner providing flexibility, control, and peace of mind every step of the way.
   </p>
-  <a href="self-tour.html" class="section-button">Request a Self-Tour</a>
-</section>
-
-<section id="agent-access">
-  <h3>What is AgentAccess?</h3>
-  <p>
-    AgentAccess is your all-in-one digital assistant for managing showings. Agents can approve buyer self-tours, track legal waivers, coordinate communication, and maintain full control — while clients gain flexibility and safety.
-  </p>
-</section>
-
-<section id="investment-calculation">
-  <h3>Investment Calculation Tool (Coming Soon)</h3>
-  <p>
-    Soon, AgentAccess will include powerful real estate investment calculators designed to help investors and buyers evaluate cash flow, returns, and make smarter decisions — all tailored to your local market.
-  </p>
-  <button disabled class="section-button" title="Coming Soon">Explore Investment Calculator</button>
 </section>
 
 <section id="find-agent">
-  <h3>Find My Own Agent (Coming Soon)</h3>
+  <h3>Find My Own Agent <small style="display:block; font-weight: 400; font-size:0.9rem; margin-top: -0.6rem; color: #64748b;">(Coming Soon)</small></h3>
   <p>
-    Forget searching agencies and ads. AgentAccess will help you connect directly with local agents — showing bios, past sales, reviews, and personalized matches — so you find the perfect agent for your needs.
+    Skip the confusing agency ads and sponsored listings. AgentAccess will soon let you explore local agents’ profiles directly — showcasing their bios, past sales, and client reviews — so you can find the perfect match to represent your interests.
   </p>
-  <button disabled class="section-button" title="Coming Soon">Find My Agent</button>
+  <button disabled class="section-button" title="Coming Soon" aria-disabled="true">Find My Agent</button>
+</section>
+
+<section id="self-tour-info">
+  <h3>What is Self Tour?</h3>
+  <p>
+    A self tour allows a buyer to visit a home independently and on their own schedule — without their agent physically present — while still under agent supervision and approval. This flexibility empowers buyers to explore homes conveniently, while agents maintain control of access, approvals, and safety protocols.
+  </p>
+  <a href="self-tour.html" class="section-button" role="button">Request a Self-Tour</a>
+</section>
+
+<section id="investment-calculation">
+  <h3>Investment Calculation Tool <small style="display:block; font-weight: 400; font-size:0.9rem; margin-top: -0.6rem; color: #64748b;">(Coming Soon)</small></h3>
+  <p>
+    Soon, AgentAccess will offer powerful real estate investment calculators designed to help investors and buyers evaluate cash flow, returns, and make smarter financial decisions — all tailored to your local market.
+  </p>
+  <button disabled class="section-button" title="Coming Soon" aria-disabled="true">Explore Investment Calculator</button>
 </section>
 
 <footer>
@@ -255,5 +309,3 @@
 </body>
 </html>
 
-</body>
-</html>
